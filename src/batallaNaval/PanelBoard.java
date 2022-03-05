@@ -4,16 +4,28 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUIBoard extends JPanel {
+/**
+ * @autor:
+ * Robert Fernando Gil robert.gil@correounivalle.edu.co -
+ * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * @version v.1.0.0 date: 05/03/2022
+ */
+
+public class PanelBoard extends JPanel {
     private int player;
     private String cols = "ABCDEFGHIJ";
     private Square[][] squares = new Square[10][10];
     private  JLabel bor, num;
+    private Escucha escucha;
 
-    public  GUIBoard(int player){
+    public PanelBoard(int player){
         this.player = player;
+        initGui();
+    }
+    public PanelBoard(){
         initGui();
     }
 
@@ -26,6 +38,7 @@ public class GUIBoard extends JPanel {
             for (int j = 0; j < squares[i].length; j++){
                 Square buttons = new Square();
                 buttons.setMargin(buttonMargin);
+
            /**     if (player == 0){
                     buttons.setActionCommand(String.valueOf(j) + "" + String.valueOf(i));
                 }else {
@@ -39,6 +52,7 @@ public class GUIBoard extends JPanel {
                     buttons.setBackground(new Color(0,191,255));
                 }
                 squares[j][i] = buttons;
+                squares[j][i].addActionListener(escucha);
             }
         }
 
@@ -61,11 +75,58 @@ public class GUIBoard extends JPanel {
                         num.setBorder(border);
                         this.add(num);
                     default:
+
+
                         this.add(squares[j][i]);
                 }
             }
         }
 
+    }
+   /** public void addActionListenerToSquares(ActionListener actionListener){
+        for  (Square[] lvC : this.squares){
+            for (Square vC : lvC){
+                if (vC.isEnabled()){
+                    vC.addActionListener(actionListener);
+                }
+            }
+        }
+
+    }
+
+    public void removeActionListenerToSquares(ActionListener action){
+        for (Square[] lvC : this.squares){
+            for (Square vC : lvC){
+                vC.removeActionListener(action);
+            }
+        }
+    }
+    public  void setVisibleSquares(){
+        for (Square[] lvC : this.squares){
+            for (Square vC : lvC){
+                if(vC.getText().equals("b")){
+                    vC.setEnabled(true);
+                }else{
+                    vC.setEnabled(false);
+                }
+                vC.setText("");
+            }
+        }
+    }
+
+    public Square[][] getSquares(){
+        return squares;
+    }
+
+    */
+
+
+    public class Escucha implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
     }
 
 }
