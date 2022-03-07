@@ -82,6 +82,8 @@ public class PanelBoard extends JPanel {
             }
         }
 
+
+
     }
    /** public void addActionListenerToSquares(ActionListener actionListener){
         for  (Square[] lvC : this.squares){

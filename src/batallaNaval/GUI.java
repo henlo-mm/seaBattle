@@ -6,6 +6,8 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+
 /**
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
@@ -31,7 +33,7 @@ public class GUI extends JFrame {
 
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        setLayout(new GridLayout(2, 3));
+        setLayout(new GridLayout(2, 2));
 
 
 
@@ -176,21 +178,16 @@ public class GUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-
-
                 Square squar = (Square)e.getSource();
-
-
                 for (int i = 0; i<squares.length; i++){
                     for (int j = 0; j<squares[0].length; j++){
                         if(squar.equals(squares[i][j])){
                             System.out.print(" Columna " + i +  ", " + " Fila " + j );
+                            squares[i][j].setIcon(new ImageIcon(getClass().getResource("/resources/fragata.png")));
+
                         }
                     }
                 }
-
-
-
 
 
         }
