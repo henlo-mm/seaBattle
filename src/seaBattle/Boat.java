@@ -12,6 +12,8 @@ import java.awt.*;
 public class Boat extends JLabel {
 
     public Boat(){
+        setPreferredSize(new Dimension(25, 25));
+        setBackground(Color.RED);
 
 
 
