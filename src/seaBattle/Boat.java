@@ -10,24 +10,14 @@ import java.awt.*;
  * @version v.1.0.0 date: 05/03/2022
  */
 public class Boat extends JLabel {
-    public Boat(int ship){
 
-        this.setPreferredSize(new Dimension(25, 25));
+    public Boat(){
 
-        switch (ship){
-            case 1:
-                setIcon(new ImageIcon(getClass().getResource("/resources/fragata.png")));
-            case 2:
-                setIcon(new ImageIcon(getClass().getResource("/resources/destructor.png")));
-            case 3:
-                setIcon(new ImageIcon(getClass().getResource("/resources/submarino.png")));
-            case 4:
-                setIcon(new ImageIcon(getClass().getResource("/resources/portaaviones.png")));
 
 
         }
       //  setVerticalTextPosition(SwingConstants.BOTTOM);
         //setHorizontalTextPosition(SwingConstants.CENTER);
 
-    }
+
 }
