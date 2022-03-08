@@ -101,7 +101,7 @@ public class InfoGame extends JPanel {
         groupBoats.add(carrier);
         groupBoats.setSelected(frag.getModel(), true);
 
-        amount = new JLabel("Barcos restantes");
+        amount = new JLabel("Barcos disponibles");
         numFrag = new JLabel("4");
         numDestr = new JLabel("3");
         numSub = new JLabel("2");

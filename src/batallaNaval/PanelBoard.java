@@ -6,6 +6,8 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * @autor:
@@ -20,16 +22,24 @@ public class PanelBoard extends JPanel {
     private Square[][] squares = new Square[10][10];
     private  JLabel bor, num;
     private Escucha escucha;
+    private boolean isPressed = false;
+    private  Control controlGame;
 
     public PanelBoard(int player){
         this.player = player;
         initGui();
     }
     public PanelBoard(){
+
         initGui();
+
     }
 
     public void initGui(){
+
+
+
+        Escucha escucha = new Escucha();
         this.setLayout(new GridLayout(0, 11));
         this.setBorder(new LineBorder(Color.BLACK));
 
@@ -52,6 +62,7 @@ public class PanelBoard extends JPanel {
                     buttons.setBackground(new Color(0,191,255));
                 }
                 squares[j][i] = buttons;
+
                 squares[j][i].addActionListener(escucha);
             }
         }
@@ -76,6 +87,8 @@ public class PanelBoard extends JPanel {
                         this.add(num);
                     default:
 
+                        squares[j][i].addActionListener(escucha);
+
 
                         this.add(squares[j][i]);
                 }
@@ -85,42 +98,10 @@ public class PanelBoard extends JPanel {
 
 
     }
-   /** public void addActionListenerToSquares(ActionListener actionListener){
-        for  (Square[] lvC : this.squares){
-            for (Square vC : lvC){
-                if (vC.isEnabled()){
-                    vC.addActionListener(actionListener);
-                }
-            }
-        }
-
-    }
-
-    public void removeActionListenerToSquares(ActionListener action){
-        for (Square[] lvC : this.squares){
-            for (Square vC : lvC){
-                vC.removeActionListener(action);
-            }
-        }
-    }
-    public  void setVisibleSquares(){
-        for (Square[] lvC : this.squares){
-            for (Square vC : lvC){
-                if(vC.getText().equals("b")){
-                    vC.setEnabled(true);
-                }else{
-                    vC.setEnabled(false);
-                }
-                vC.setText("");
-            }
-        }
-    }
 
     public Square[][] getSquares(){
         return squares;
     }
-
-    */
 
 
     public class Escucha implements ActionListener{
@@ -128,7 +109,16 @@ public class PanelBoard extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            Control control = new Control();
+            Square squar = (Square)e.getSource();
+            control.getPositionClicked(squar, squares);
+
+
+
+
+
+        }
+
+
         }
     }
-
-}

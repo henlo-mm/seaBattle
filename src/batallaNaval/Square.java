@@ -15,5 +15,6 @@ public class Square extends JButton {
         this.setPreferredSize(new Dimension(25, 25));
         this.setBackground(Color.WHITE);
         this.setForeground(Color.darkGray);
+    //    this.setContentAreaFilled(false);
     }
 }
