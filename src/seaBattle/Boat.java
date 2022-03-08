@@ -1,9 +1,7 @@
-package batallaNaval;
+package seaBattle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * @autor:

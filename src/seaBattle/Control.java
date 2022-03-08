@@ -1,8 +1,6 @@
-package batallaNaval;
+package seaBattle;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
 
 /**
  * @autor:
