@@ -45,6 +45,7 @@ public class PanelBoard extends JPanel {
 
         square = new Square();
         frigate = new Frigate();
+
      /**   frigate2 = new Frigate();
         frigate3 = new Frigate();
         frigate4 = new Frigate();
@@ -118,11 +119,6 @@ public class PanelBoard extends JPanel {
                         this.add(num);
                     default:
                         if(player == 1){
-
-
-
-
-
 
 
                         }

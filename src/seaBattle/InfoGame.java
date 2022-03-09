@@ -14,6 +14,7 @@ import java.awt.*;
 
 public class InfoGame extends JPanel {
     private  JLabel symbol, symbol2, symbol3;
+    private  PanelBoard panelBoard;
 
 
     private JButton frag, destr, sub, carrier;
@@ -36,7 +37,6 @@ public class InfoGame extends JPanel {
      //   setBorder(new EmptyBorder(10, 10, 10, 10));
         setLayout(new GridLayout(7, 7));
 
-        //
         symbol = new JLabel("Tiro al agua ");
         symbol.setPreferredSize(new Dimension(100, 25));
         symbol.setIcon(new ImageIcon(getClass().getResource("/resources/fail.png")));

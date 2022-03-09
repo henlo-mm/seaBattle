@@ -70,7 +70,7 @@ public class Control {
             for (int j = 0; j<square[0].length; j++){
                 if(button.equals(square[i][j])){
                     System.out.print(" X: " + i +  " , " + " Y: " + j );
-                   // square[i][j].setBackground(Color.GREEN);
+                    square[i][j].setBackground(Color.GREEN);
 
                 }
             }

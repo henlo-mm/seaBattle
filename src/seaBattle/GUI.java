@@ -33,7 +33,7 @@ public class GUI extends JFrame {
         setSize(new Dimension(1200, 800));
         setResizable(false);
 
-        //Tablero del jugador
+        //Tablero del computador
 
         board = panelBoard;
         board.setBorder(BorderFactory.createTitledBorder("Tablero principal:"));
@@ -46,7 +46,7 @@ public class GUI extends JFrame {
 
         add(board);
 
-        //Tablero del computador
+        //Tablero del jugador
 
         boardIA = new PanelBoard(1);
         boardIA.setBorder(BorderFactory.createTitledBorder("Tablero de posición:"));
