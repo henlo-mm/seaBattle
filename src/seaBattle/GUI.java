@@ -38,7 +38,6 @@ public class GUI extends JFrame {
         board = panelBoard;
         board.setBorder(BorderFactory.createTitledBorder("Tablero principal:"));
 
-
         c.gridx = 1;
         c.gridy = 2;
         c.gridwidth = 1;
@@ -52,6 +51,7 @@ public class GUI extends JFrame {
         boardIA = new PanelBoard(1);
         boardIA.setBorder(BorderFactory.createTitledBorder("Tablero de posición:"));
         boardIA.setPreferredSize(new Dimension(600, 300));
+
 
         c.gridx = 1;
         c.gridy = 3;

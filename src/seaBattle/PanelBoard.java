@@ -6,6 +6,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 /**
  * @autor:
@@ -18,13 +19,47 @@ public class PanelBoard extends JPanel {
     private int player;
     private String cols = "ABCDEFGHIJ";
     private Square[][] squares = new Square[10][10];
+    private Square  square;
     private  JLabel bor, num;
     private Escucha escucha;
-    private boolean isPressed = false;
+    private Frigate frigate;
+  /**  private Boat frigate2;
+    private Boat frigate3;
+    private Boat frigate4;
+    private Boat destroyer;
+    private Boat destroyer2;
+    private Boat destroyer3;
+    private Boat submarine;
+    private Boat submarine2;
+    private Boat cruiser;
+
+   */
+    private Random col, row;
+
+
+
     private  Control controlGame;
 
     public PanelBoard(int player){
         this.player = player;
+
+        square = new Square();
+        frigate = new Frigate();
+     /**   frigate2 = new Frigate();
+        frigate3 = new Frigate();
+        frigate4 = new Frigate();
+        destroyer = new Destroyer();
+        destroyer2 = new Destroyer();
+        destroyer3 = new Destroyer();
+        submarine = new Submarine();
+        submarine2 = new Submarine();
+        cruiser = new Cruiser();
+        col = new Random();
+
+        row = new Random();
+
+      */
+
         initGui();
     }
     public PanelBoard(){
@@ -34,8 +69,6 @@ public class PanelBoard extends JPanel {
     }
 
     public void initGui(){
-
-
 
         Escucha escucha = new Escucha();
         this.setLayout(new GridLayout(0, 11));
@@ -58,9 +91,9 @@ public class PanelBoard extends JPanel {
                     buttons.setBackground(Color.darkGray);
                 }else{
                     buttons.setBackground(new Color(0,191,255));
+
                 }
                 squares[j][i] = buttons;
-
                 squares[j][i].addActionListener(escucha);
             }
         }
@@ -84,8 +117,15 @@ public class PanelBoard extends JPanel {
                         num.setBorder(border);
                         this.add(num);
                     default:
+                        if(player == 1){
 
-                        squares[j][i].addActionListener(escucha);
+
+
+
+
+
+
+                        }
 
 
                         this.add(squares[j][i]);
@@ -101,22 +141,15 @@ public class PanelBoard extends JPanel {
         return squares;
     }
 
-
     public class Escucha implements ActionListener{
-
         @Override
         public void actionPerformed(ActionEvent e) {
-
             Control control = new Control();
             Square squar = (Square)e.getSource();
             control.getPositionClicked(squar, squares);
 
-
-
-
-
         }
 
 
-        }
     }
+}
