@@ -24,7 +24,10 @@ public class PanelBoard implements  Drawable {
 
     public PanelBoard() {    }
 
-    //Método que dibuja el tablero
+    /**
+     *  Método que dibuja el tablero
+     */
+
     public void draw(Graphics g) {
 
         //Color del borde las celdas
@@ -38,7 +41,10 @@ public class PanelBoard implements  Drawable {
         }
     }
 
-    //Tiros del computador
+    /**
+     * Obtiene los tiros realizados.
+     */
+
     public int getShot(int n) {
         int id = field[n];
         field[n] = -1;
@@ -53,11 +59,19 @@ public class PanelBoard implements  Drawable {
         damagedCellsCount++;
         return 0;
     }
-    //Fin del juego
+
+    /**
+     * Determina si se han realizado todos los tiros necesarios.
+     * @return
+     */
     public boolean isAllShot() {
         return damagedCellsCount == TOTAL_SHIP_LENGTH;
     }
-    //Dibuja una "x" si el tiro da en el agua
+
+    /**
+     * Dibuja una "x" si el tiro da en el agua
+     *
+     */
     static class Miss implements Drawable{
         private BufferedImage icone;
         int n;
@@ -124,11 +138,20 @@ public class PanelBoard implements  Drawable {
 
      */
 
+    /**
+     * Determina si un barco fue destruido.
+     * @param id
+     * @return
+     */
+
     public Ship getDestroyedShip(int id){
         return ships[id];
     }
 
-    //Dibuja una bomba donde el barco fue tocado
+    /**
+     * Esta clase permite dibujar una bomba donde el barco fue tocado.
+     */
+
 
     static class Shot implements Drawable{
         int n;
@@ -139,10 +162,8 @@ public class PanelBoard implements  Drawable {
         }
         @Override
         public void draw(Graphics g) {
-            //g.setColor(Color.RED);
-            ((Graphics2D)g).setStroke(new BasicStroke(4.0f));
-            //  int diameter=(int)(GameConstant.CELL_SIZE *0.5);
 
+            ((Graphics2D)g).setStroke(new BasicStroke(4.0f));
             try {
 
                 iconeNave = ImageIO.read(getClass().getResource("/resources/bomb.png"));
@@ -151,26 +172,31 @@ public class PanelBoard implements  Drawable {
                 e.printStackTrace();
             }
 
-
-            //0.5 - size of object/size of board cell
-            //  g.fillOval(getX(n)+(GameConstant.CELL_SIZE -diameter)/2,getY(n)+(GameConstant.CELL_SIZE -diameter)/2,diameter,diameter);
             g.drawImage(iconeNave, getX(n),getY(n), null);
         }
     }
-    //Obtiene la posición "x"
+
+    /**
+     * Obtiene la posición "" del tablero
+     */
+
     public static int getX(int n) {
         if (n % GameConstant.DIMENSION == 0) return (GameConstant.DIMENSION -1)*GameConstant.CELL_SIZE;
         else return (n % GameConstant.DIMENSION -1)*GameConstant.CELL_SIZE;
     }
 
-    //Obtiene la posición "y"
+    /**
+     * Obtiene la posición "Y" del tablero
+     */
 
     public static int getY(int n) {
         if (n % GameConstant.DIMENSION == 0) return (n / GameConstant.DIMENSION -1)* GameConstant.CELL_SIZE;
         else return n / GameConstant.DIMENSION *GameConstant.CELL_SIZE;
     }
 
-    //Método para ubicar automáticamente los barcos del computador
+    /**
+     * Este método ubica automáticamente los barcos enemigos en su tablero.
+     */
 
     public void autoPlaceShips() {
         boolean[] used = new boolean[GameConstant.CELLS_COUNT+1];
@@ -190,14 +216,25 @@ public class PanelBoard implements  Drawable {
         }
     }
 
-    //Genera un número aleatorio entre una posición y otra
+
+    /**
+     * Genera un número aleatorio entre una posición y otra.
+      * @param from
+     * @param to
+     * @return
+     */
     public int getRandom(int from, int to) {
         Random r = new Random();
         return r.nextInt(to - from) + from;
     }
 
-    //Obtiene una posición válida para empezar a añadir los barcos.
-
+    /**
+     * Obtiene una posición válida para empezar a añadir los barcos.
+     * @param size
+     * @param orient
+     * @param forRandomPick
+     * @return
+     */
     private int getValidShipStart(int size, boolean orient, int[] forRandomPick) {
         int position = getRandom(forRandomPick[0], GameConstant.CELLS_COUNT+1);
         int start = forRandomPick[position];
@@ -210,7 +247,14 @@ public class PanelBoard implements  Drawable {
         }
         return start;
     }
-    //Método que retorna "true" si el espacio está disponible para construir el barco.
+
+    /**
+     * Determina si una posición es válida para comenzar a añadir los barcos.
+     * @param start
+     * @param size
+     * @param orient
+     * @return
+     */
     private boolean isValidStartForBuildShip(int start, int size, boolean orient) {
         if (start < 1 || start > GameConstant.CELLS_COUNT+1) return false;
         int distToEdge;
@@ -224,10 +268,18 @@ public class PanelBoard implements  Drawable {
         }
         return size - 1 <= distToEdge && distToEdge != GameConstant.DIMENSION;
     }
-    //Construye los barcos del computador
+
+    /**
+     * Genera los barcos del computador.
+     * @param size
+     * @param id
+     * @param orient
+     * @param forRandomPick
+     * @param used
+     */
 
     private void autoBuildShip(int size, int id, boolean orient, int[] forRandomPick, boolean[] used) {
-        //
+
         int start = getValidShipStart(size, orient, forRandomPick);
         //Construye los barcos
         ships[id] = new Ship(orient, start, size);
@@ -242,7 +294,10 @@ public class PanelBoard implements  Drawable {
         for (int n : ships[id].position()) field[n] = id;
     }
 
-    //Obtiene todos los barcos
+    /**
+     * Obtiene todos los barcos
+     * @return
+     */
 
     public Ship[] getAllShips(){
         Ship[] allShips =new Ship[ships.length-1];
@@ -250,7 +305,12 @@ public class PanelBoard implements  Drawable {
         return allShips;
     }
 
-    //Retorna "true" si el barco es válido
+    /**
+     * Determina si un barco es válid
+     * @param ship
+     * @param usedCells
+     * @return
+     */
 
     public boolean isShipValid(Ship ship, boolean[] usedCells) {
         for (int n : ship.position()) {
@@ -259,13 +319,20 @@ public class PanelBoard implements  Drawable {
         return true;
     }
 
-    //Verifica las celdas
-
+    /**
+     *  Verifica las celdas.
+     * @param n
+     * @return
+     */
     public boolean isCellChecked(int n) { //true if this cell is already checked
         return field[n] == -1;
     }
 
-    //Actualiza el tablero
+    /**
+     * Actualiza el tablero
+     * @param array
+     * @param b
+     */
     public void update(int[] array, int b) {
         int a=array[0];
         int temp = array[a];

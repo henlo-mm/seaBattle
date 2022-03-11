@@ -3,6 +3,7 @@ package seaBattle;
 import java.awt.*;
 
 /**
+ * Esta interfaz permite que se pueda dibujar en las clases.
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
  * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176

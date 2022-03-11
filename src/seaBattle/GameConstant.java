@@ -1,6 +1,7 @@
 package seaBattle;
 
 /**
+ * Esta clase es utilizada para evitar repetir la declaración de las constantes.
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
  * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176

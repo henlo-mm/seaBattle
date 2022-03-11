@@ -1,6 +1,7 @@
 package seaBattle;
 
 /**
+ * Esta interfaz permite al jugador realizar las acciones mediante onMouseClicked
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
  * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176

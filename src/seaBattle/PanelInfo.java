@@ -4,30 +4,30 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 /**
+ * Se usa para mostrar un panel informativo del juego
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
  * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 05/03/2022
  */
 
-//Esta clase se encargará de mostrar información sobre el juego
 
-public class InfoGame extends JPanel {
+public class PanelInfo extends JPanel {
     private  JLabel symbol, symbol2, symbol3;
-    private  PanelBoard panelBoard;
-
-
     private JButton frag, destr, sub, carrier;
     private ButtonGroup groupBoats;
-
     private JLabel amount, numFrag, numDestr, numSub, numCarrier;
 
-    //Constructor de la clase
-    public InfoGame(){
+    /**
+     * Constructor de la clase PanelInfo
+     */
+    public PanelInfo(){
         initGUI();
     }
 
-    //Función para inicializar la GUI
+    /**
+     * Método para inicializar los atributos del panel
+     */
     public void initGUI(){
         setBorder(new LineBorder(Color.BLACK));
         setBackground(Color.WHITE);
@@ -37,22 +37,30 @@ public class InfoGame extends JPanel {
      //   setBorder(new EmptyBorder(10, 10, 10, 10));
         setLayout(new GridLayout(7, 7));
 
+        /**
+         * Símbolos de los tiros
+         */
+
         symbol = new JLabel("Tiro al agua ");
-        symbol.setPreferredSize(new Dimension(100, 25));
+        symbol.setPreferredSize(new Dimension(100, 30));
         symbol.setIcon(new ImageIcon(getClass().getResource("/resources/fail.png")));
         symbol.setHorizontalAlignment(JLabel.CENTER);
 
         symbol2 = new JLabel("Tocado");
-        symbol2.setPreferredSize(new Dimension(50, 25));
+        symbol2.setPreferredSize(new Dimension(50, 30));
         symbol2.setIcon(new ImageIcon(getClass().getResource("/resources/bomb.png")));
         symbol2.setHorizontalAlignment(JLabel.CENTER);
 
         symbol3 = new JLabel("Hundido");
-        symbol3.setPreferredSize(new Dimension(50, 25));
+        symbol3.setPreferredSize(new Dimension(50, 30));
         symbol3.setIcon(new ImageIcon(getClass().getResource("/resources/fire.png")));
         symbol3.setHorizontalAlignment(JLabel.CENTER);
 
-        JLabel barcos = new JLabel("Barcos disponibles");
+        /**
+         * Tipo y número de barcos disponibles.
+         */
+
+        JLabel barcos = new JLabel("Barcos disponibles: ");
 
         frag = new JButton("Fragata");
         frag.setActionCommand("fragata");
@@ -100,7 +108,7 @@ public class InfoGame extends JPanel {
         groupBoats.add(carrier);
         groupBoats.setSelected(frag.getModel(), true);
 
-        amount = new JLabel("Barcos disponibles");
+        amount = new JLabel("Número de barcos: ");
         numFrag = new JLabel("4");
         numDestr = new JLabel("3");
         numSub = new JLabel("2");

@@ -1,6 +1,7 @@
 package seaBattle;
 
 /**
+ * Se usa para declarar los estados del juego
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
  * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
