@@ -5,7 +5,6 @@ import java.awt.*;
 import java.util.ArrayDeque;
 
 /**
- * Clase: Ship
  *  Esta clase es usada para manejar y crear los barcos.
  * @autor:
  * Robert Fernando Gil robert.gil@correounivalle.edu.co -
@@ -19,6 +18,7 @@ public class Ship implements Drawable{
     private final int start;
     private final boolean isHorizontal;
     private int damagedCellCount = 0;
+    private int i;
 
     /**
      * Constructor de la clase
@@ -30,6 +30,7 @@ public class Ship implements Drawable{
         this.isHorizontal = isHorizontal;
         this.start = start;
         this.size = size;
+        i = 1;
     }
 
     /**
@@ -94,7 +95,7 @@ public class Ship implements Drawable{
     }
 
     /**
-     * Este método ibuja los barcos
+     * Este método dibuja los barcos
      * @param g
      */
     public void draw(Graphics g) {
@@ -125,10 +126,10 @@ public class Ship implements Drawable{
 
         int width=(xRight-xLeft);
         int height=(yTop-yBottom);
+        System.out.print(GameConstant.SHIPS_SIZE[i]);
         g.drawRect(xLeft,yTop,width,height);
         g.fillRect(xLeft,yTop,width,height);
 
     }
-
 
 }

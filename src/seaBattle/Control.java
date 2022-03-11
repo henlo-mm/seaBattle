@@ -74,6 +74,13 @@ public class Control implements  PlayerAction {
         state = State.DO_NOTHING;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param s
+     */
+
     public void onMouseClicked(int x, int y, State s) {
         state = s;
         int xx = x / GameConstant.CELL_SIZE + 1;
@@ -91,6 +98,11 @@ public class Control implements  PlayerAction {
         }
     }
 
+    /**
+     *
+     * @param s
+     */
+
     public void onPassState(State s) {
         state = s;
         switch (state) {
@@ -102,6 +114,7 @@ public class Control implements  PlayerAction {
 
                 else {
                     gameWindow.updateMessage("Longitud del barco:  " + GameConstant.SHIPS_SIZE[i], "");
+              //      System.out.print(GameConstant.SHIPS_SIZE[i]);
                     if (GameConstant.SHIPS_SIZE[i] == 1) {
                         gameWindow.updateMessage("", " ");
                         gameWindow.updateState(State.BUILD_HORIZONTAL);
@@ -118,6 +131,12 @@ public class Control implements  PlayerAction {
             break;
         }
     }
+
+    /**
+     *
+     * @param x
+     * @param y
+     */
 
     private void processUserMove(int x, int y) {
         state = State.DO_NOTHING;
@@ -154,7 +173,12 @@ public class Control implements  PlayerAction {
         }
     }
 
-
+    /**
+     *
+     * @param x
+     * @param y
+     * @param orientation
+     */
     private void buildShip(int x, int y, boolean orientation)  {
         int coordinate = (y - 1) * GameConstant.DIMENSION + x;
         int size = GameConstant.SHIPS_SIZE[i];
