@@ -18,7 +18,7 @@ public class Ship implements Drawable{
     private final int start;
     private final boolean isHorizontal;
     private int damagedCellCount = 0;
-    private int i;
+    private int i = 0;
 
     /**
      * Constructor de la clase
@@ -30,7 +30,8 @@ public class Ship implements Drawable{
         this.isHorizontal = isHorizontal;
         this.start = start;
         this.size = size;
-        i = 1;
+
+
     }
 
     /**
@@ -60,6 +61,7 @@ public class Ship implements Drawable{
         int k = 1;
         boolean topLeft = true;
         boolean bottomRight = true;
+
 
         if (isHorizontal) {
             if (start % GameConstant.DIMENSION == 1) j = 1;
@@ -99,6 +101,7 @@ public class Ship implements Drawable{
      * @param g
      */
     public void draw(Graphics g) {
+
 
         int scale=GameConstant.CELL_SIZE;
         ((Graphics2D)g).setStroke(new BasicStroke(5.0f));
