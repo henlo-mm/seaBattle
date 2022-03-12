@@ -6,9 +6,7 @@ import java.util.Random;
 
 /**
  * Se usa para declarar los métodos y las acciones tanto del jugador como del computador.
- * @autor:
- * Robert Fernando Gil robert.gil@correounivalle.edu.co -
- * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 05/03/2022
  */
 
@@ -74,13 +72,13 @@ public class Control implements  PlayerAction {
         state = State.DO_NOTHING;
     }
 
+
     /**
      *
      * @param x
      * @param y
      * @param s
      */
-
     public void onMouseClicked(int x, int y, State s) {
         state = s;
         int xx = x / GameConstant.CELL_SIZE + 1;
@@ -98,6 +96,8 @@ public class Control implements  PlayerAction {
         }
     }
 
+
+
     /**
      *
      * @param s
@@ -105,6 +105,7 @@ public class Control implements  PlayerAction {
 
     public void onPassState(State s) {
         state = s;
+
         switch (state) {
             case NEW_GAME:
                 this.play();
@@ -114,7 +115,7 @@ public class Control implements  PlayerAction {
 
                 else {
                     gameWindow.updateMessage("Longitud del barco:  " + GameConstant.SHIPS_SIZE[i], "");
-              //      System.out.print(GameConstant.SHIPS_SIZE[i]);
+
                     if (GameConstant.SHIPS_SIZE[i] == 1) {
                         gameWindow.updateMessage("", " ");
                         gameWindow.updateState(State.BUILD_HORIZONTAL);
@@ -128,9 +129,13 @@ public class Control implements  PlayerAction {
                 }
                 state = State.MAKE_MOVE;
             }
+
             break;
+
         }
+
     }
+
 
     /**
      *
@@ -160,7 +165,7 @@ public class Control implements  PlayerAction {
 
         if (shot > 0) {
             gameWindow.drawOnRight(computerPanelBoard.getDestroyedShip(shot));
-            // gameWindow.drawOnRight(new PanelBoard.Destroy(shot));
+
             gameWindow.updateMessage("", "Este barco está listo");
         }
         gameWindow.drawOnRight(new PanelBoard.Shot(coordinate));
@@ -224,7 +229,7 @@ public class Control implements  PlayerAction {
     private void computerMove() {
         gameWindow.updateState(State.DO_NOTHING);
         int shot;
-        if (goodShotsSoFar == 0) shot = computerMakesRandomShot();
+        if (goodShotsSoFar == 0) shot = computerRandomShot();
         else shot = computerMakesSmartShot();
         while (shot >= 0) {
             if (shot == 0) {
@@ -239,16 +244,17 @@ public class Control implements  PlayerAction {
                     return;
                 }
                 if (shot==1) forPreferredPick.clear();
-                Ship destroyed = playerBoard.getDestroyedShip(shot);
 
-                //
+                Ship destroyed = playerBoard.getDestroyedShip(shot);
 
                 for (int n : destroyed.getSurrounded()) {
 
                     playerBoard.playerGetPseudoShot(n);
+
                 }
                 resetSmartFields();
-                shot = computerMakesRandomShot();
+
+                shot = computerRandomShot();
             }
         }
         gameWindow.updateState(State.MAKE_MOVE);
@@ -282,7 +288,7 @@ public class Control implements  PlayerAction {
         int shot = playerBoard.getShot(n);
         if (shot >= 0) handleGoodShot(n);
         else gameWindow.drawOnLeft(new PanelBoard.Miss(n));
-        gameWindow.updateMessage("Disparo en " + n, "");
+        gameWindow.updateMessage("Disparo en la celda " + n, "");
         return shot;
     }
 
@@ -314,11 +320,11 @@ public class Control implements  PlayerAction {
      * @return
      */
 
-    private int computerMakesRandomShot() {
+    private int computerRandomShot() {
         int n;
         if (forPreferredPick.size()>0) n=getPreferred();
         else n = getValidRandom(forRandomPick);
-        // catch pseudoShots and shots from smartShot
+
         while (playerBoard.isCellChecked(n)) {
             if (forPreferredPick.size()>0) n=getPreferred();
             else n = getValidRandom(forRandomPick);

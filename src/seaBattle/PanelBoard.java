@@ -69,7 +69,7 @@ public class PanelBoard implements  Drawable {
     }
 
     /**
-     * Dibuja una "x" si el tiro da en el agua
+     * Dibuja una "X" si el tiro da en el agua
      *
      */
     static class Miss implements Drawable{
@@ -81,62 +81,45 @@ public class PanelBoard implements  Drawable {
 
         public void draw(Graphics g){
 
-            // g.setColor(Color.BLACK);
-            // int diameter=(int)(GameConstant.CELL_SIZE *0.3);
             ((Graphics2D)g).setStroke(new BasicStroke(4.0f));
 
             try {
-
 
                 icone = ImageIO.read(getClass().getResource("/resources/fail.png"));
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            // g.drawOval(getX(n)+(GameConstant.CELL_SIZE -diameter)/2,getY(n)+(GameConstant.CELL_SIZE -diameter)/2,diameter,diameter);
             g.drawImage(icone, getX(n),getY(n), null);
         }
     }
-    /**
-     *
-     *
-     * //Intento fallido
+
      static  class Destroy implements Drawable{
 
-     private BufferedImage icon;
+         private BufferedImage icon;
+         int n;
 
+         public Destroy(int n){
+            this.n = n;
 
-     int n;
-     public Destroy(int n){
-     this.n = n;
+         }
 
+         @Override
+         public void draw(Graphics g) {
+
+             ((Graphics2D)g).setStroke(new BasicStroke(4.0f));
+
+             try {
+                icon = ImageIO.read(getClass().getResource("/resources/fire.png"));
+             } catch (IOException e) {
+                  e.printStackTrace();
+             }
+
+             g.drawImage(icon, getX(n),getY(n), null);
+
+         }
      }
 
-     @Override
-     public void draw(Graphics g) {
-
-     ((Graphics2D)g).setStroke(new BasicStroke(4.0f));
-
-     //  int diameter=(int)(GameConstant.CELL_SIZE *0.5);
-
-     try {
-
-     icon = ImageIO.read(getClass().getResource("/resources/fire.png"));
-
-     } catch (IOException e) {
-     e.printStackTrace();
-     }
-
-
-     //0.5 - size of object/size of board cell
-     //  g.fillOval(getX(n)+(GameConstant.CELL_SIZE -diameter)/2,getY(n)+(GameConstant.CELL_SIZE -diameter)/2,diameter,diameter);
-     g.drawImage(icon, getX(n),getY(n), null);
-
-
-     }
-     }
-
-     */
 
     /**
      * Determina si un barco fue destruido.
@@ -177,7 +160,7 @@ public class PanelBoard implements  Drawable {
     }
 
     /**
-     * Obtiene la posición "" del tablero
+     * Obtiene la posición "X" del tablero
      */
 
     public static int getX(int n) {
@@ -306,7 +289,7 @@ public class PanelBoard implements  Drawable {
     }
 
     /**
-     * Determina si un barco es válid
+     * Determina si un barco es válido
      * @param ship
      * @param usedCells
      * @return

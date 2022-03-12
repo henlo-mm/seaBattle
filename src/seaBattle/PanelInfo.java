@@ -64,7 +64,7 @@ public class PanelInfo extends JPanel {
 
         frag = new JButton("Fragata");
         frag.setActionCommand("fragata");
-        frag.setIcon(new ImageIcon(getClass().getResource("/resources/fragata.png")));
+        frag.setIcon(new ImageIcon(getClass().getResource("/resources/fragata_ico.png")));
         frag.setOpaque(true);
         frag.setFocusPainted(false);
         frag.setBorder(null);
@@ -75,7 +75,7 @@ public class PanelInfo extends JPanel {
 
         destr = new JButton("Destructor");
         destr.setActionCommand("destructor");
-        destr.setIcon(new ImageIcon(getClass().getResource("/resources/destructor.png")));
+        destr.setIcon(new ImageIcon(getClass().getResource("/resources/destructor_ico.png")));
         destr.setOpaque(true);
         destr.setFocusPainted(false);
         destr.setBorder(null);
@@ -85,7 +85,7 @@ public class PanelInfo extends JPanel {
 
         sub = new JButton("Submarino");
         sub.setActionCommand("submarino");
-        sub.setIcon(new ImageIcon(getClass().getResource("/resources/submarino.png")));
+        sub.setIcon(new ImageIcon(getClass().getResource("/resources/submarino_ico.png")));
         sub.setOpaque(true);
         sub.setFocusPainted(false);
         sub.setBorder(null);
@@ -94,7 +94,7 @@ public class PanelInfo extends JPanel {
 
         carrier = new JButton("Portaavion");
         carrier.setActionCommand("portavion");
-        carrier.setIcon(new ImageIcon(getClass().getResource("/resources/portaaviones.png")));
+        carrier.setIcon(new ImageIcon(getClass().getResource("/resources/portaaviones_ico.png")));
         carrier.setOpaque(true);
         carrier.setFocusPainted(false);
         carrier.setBorder(null);

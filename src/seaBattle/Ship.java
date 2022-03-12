@@ -1,7 +1,10 @@
 package seaBattle;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayDeque;
 
 /**
@@ -18,7 +21,8 @@ public class Ship implements Drawable{
     private final int start;
     private final boolean isHorizontal;
     private int damagedCellCount = 0;
-    private int i = 0;
+    private Control control;
+    private BufferedImage iconeNave, frigate, destroyer, submarine;
 
     /**
      * Constructor de la clase
@@ -30,7 +34,6 @@ public class Ship implements Drawable{
         this.isHorizontal = isHorizontal;
         this.start = start;
         this.size = size;
-
 
     }
 
@@ -103,7 +106,10 @@ public class Ship implements Drawable{
     public void draw(Graphics g) {
 
 
+
+
         int scale=GameConstant.CELL_SIZE;
+       // int num = control.getAuto_i();
         ((Graphics2D)g).setStroke(new BasicStroke(5.0f));
 
         //Color de los barcos
@@ -127,11 +133,45 @@ public class Ship implements Drawable{
             yBottom = yTop - size*scale;
         }
 
+        try {
+
+            iconeNave = ImageIO.read(getClass().getResource("/resources/portaaviones_r3.png"));
+            destroyer = ImageIO.read(getClass().getResource("/resources/destructor_ico.png"));
+            submarine = ImageIO.read(getClass().getResource("/resources/submarino_r.png"));
+            frigate = ImageIO.read(getClass().getResource("/resources/fragata_ico.png"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
         int width=(xRight-xLeft);
         int height=(yTop-yBottom);
-        System.out.print(GameConstant.SHIPS_SIZE[i]);
         g.drawRect(xLeft,yTop,width,height);
         g.fillRect(xLeft,yTop,width,height);
+
+
+
+        /** if (num == 4 && isHorizontal){
+             g.drawImage(iconeNave, xLeft,yTop, null);
+
+         }else if (num == 3 && isHorizontal){
+             g.drawImage(submarine, xLeft,yTop, null);
+
+         }else if (num == 2 && isHorizontal){
+             g.drawImage(destroyer, xLeft,yTop, null);
+
+         }else if (num == 1 ){
+             g.drawImage(frigate, xLeft,yTop, null);
+
+         }else {
+             g.drawRect(xLeft,yTop,width,height);
+             g.fillRect(xLeft,yTop,width,height);
+
+         }
+         */
+
 
     }
 
