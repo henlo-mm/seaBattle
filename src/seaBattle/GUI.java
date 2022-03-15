@@ -21,10 +21,12 @@ public class GUI extends JFrame {
     private JPanel buttonPanel = new JPanel();
     private JLabel message = new JLabel("Batalla Naval");
     private JLabel message1 = new JLabel("Message 1");
+    private  JButton buildButton, help;
     private MyPanel leftBoard = new MyPanel();
     private MyPanel rightBoard = new MyPanel();
     private PanelInfo panelInfo;
     private State state;
+    public Escucha escucha;
 
     public static final String MESSAGE = "Bienvenido a Batalla Naval \n" +
             "\n Batalla Naval es un juego de estrategia que involucra dos participantes, en este caso un jugador humano y una máquina. " +
@@ -173,25 +175,20 @@ public class GUI extends JFrame {
      */
 
     private void locateShips() {
+        escucha = new Escucha();
         messagePanel.removeAll();
 
         //Botón para realizar la ubicación de los barcos
 
-        JButton buildButton = new JButton("Ubicar barcos");
+        buildButton = new JButton("Ubicar barcos");
         buildButton.setFocusPainted(false);
-        buildButton.addActionListener(e -> {
-            handler.onPassState(State.CHOOSE_ORIENT);
-            revalidate();
-            repaint();
-        });
+        buildButton.addActionListener(escucha);
 
         //Botón de ayuda
 
-        JButton help = new JButton("?");
+        help = new JButton("?");
         help.setFocusPainted(false);
-        help.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, MESSAGE);
-        });
+        help.addActionListener(escucha);
 
         //Panel para ubicar los botones
 
@@ -252,6 +249,25 @@ public class GUI extends JFrame {
 
     public static void main(String[] args) {
         Control newGame = new Control();
+    }
+
+    public class Escucha extends MouseAdapter implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            if(e.getSource() == buildButton){
+                handler.onPassState(State.CHOOSE_ORIENT);
+                revalidate();
+                repaint();
+
+            }else if(e.getSource() == help){
+                JOptionPane.showMessageDialog(null, MESSAGE);
+            }
+
+        }
+
+
     }
 
 }
