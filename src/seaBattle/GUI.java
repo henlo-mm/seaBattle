@@ -31,7 +31,7 @@ public class GUI extends JFrame {
             "\n En el juego tendrás dos tableros: el de posición es aquel donde podrás ubicar tus barcos, el principal es donde realizarás tus disparos." +
             "\n Una vez los barcos han sido posicionados, inician las rondas. Cada jugador tendrá su turno. Si alguno toca o destruye un barco, " +
             "\n tendrá derecho a realizar otro disparo, de lo contrario el turno es del otro jugador. Hay 9 barcos disponibles: 4 fragatas, 3 destructores, " +
-            "\n  2 submarinos y 1 portaaviones. El ganador será aquel que haya hundido más barcos. ";
+            "\n 2 submarinos y 1 portaaviones. El ganador será aquel que haya hundido más barcos. ";
 
     private PlayerAction handler;
 
