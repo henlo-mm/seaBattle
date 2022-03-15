@@ -9,9 +9,8 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 /**
- * @autor:
- * Robert Fernando Gil robert.gil@correounivalle.edu.co -
- * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ *  Esta clase se encargará de mostrar ambos tableros y de manejar sus funciones.
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - 2022985 - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 10/03/2022
  */
 

@@ -9,9 +9,7 @@ import java.util.ArrayDeque;
 
 /**
  *  Esta clase es usada para manejar y crear los barcos.
- * @autor:
- * Robert Fernando Gil robert.gil@correounivalle.edu.co -
- * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - 2022985 - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 05/03/2022
  */
 

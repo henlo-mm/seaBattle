@@ -2,9 +2,7 @@ package seaBattle;
 
 /**
  * Se usa para declarar los estados del juego
- * @autor:
- * Robert Fernando Gil robert.gil@correounivalle.edu.co -
- * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - 2022985 - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 10/03/2022
  */
 

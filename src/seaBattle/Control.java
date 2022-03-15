@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * Se usa para declarar los métodos y las acciones tanto del jugador como del computador.
- * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - 2022985 - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 05/03/2022
  */
 

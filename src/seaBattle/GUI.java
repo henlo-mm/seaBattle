@@ -12,9 +12,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  * Esta clase se encarga de manejar la interfaz del juego
- * @autor:
- * Robert Fernando Gil robert.gil@correounivalle.edu.co -
- * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - 2022985 - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 05/03/2022
  */
 public class GUI extends JFrame {
@@ -27,6 +25,13 @@ public class GUI extends JFrame {
     private MyPanel rightBoard = new MyPanel();
     private PanelInfo panelInfo;
     private State state;
+
+    public static final String MESSAGE = "Bienvenido a Batalla Naval \n" +
+            "\n Batalla Naval es un juego de estrategia que involucra dos participantes, en este caso un jugador humano y una máquina. " +
+            "\n En el juego tendrás dos tableros: el de posición es aquel donde podrás ubicar tus barcos, el principal es donde realizarás tus disparos." +
+            "\n Una vez los barcos han sido posicionados, inician las rondas. Cada jugador tendrá su turno. Si alguno toca o destruye un barco, " +
+            "\n tendrá derecho a realizar otro disparo, de lo contrario el turno es del otro jugador. Hay 9 barcos disponibles: 4 fragatas, 3 destructores, " +
+            "\n  2 submarinos y 1 portaaviones. El ganador será aquel que haya hundido más barcos. ";
 
     private PlayerAction handler;
 
@@ -89,7 +94,7 @@ public class GUI extends JFrame {
     }
 
     /**
-     * Actualiza el mensaje del panel
+     * Actualiza los mensajes de los paneles.
      * @param s
      * @param s1
      */
@@ -117,7 +122,6 @@ public class GUI extends JFrame {
         public ArrayDeque<Drawable> objectsForDraw = new ArrayDeque<>();
 
         public MyPanel() {
-
             setBorder(BorderFactory.createStrokeBorder(new BasicStroke(5.0f)));
             setBackground(new Color(0,191,255));
         }
@@ -171,25 +175,36 @@ public class GUI extends JFrame {
     private void locateShips() {
         messagePanel.removeAll();
 
+        //Botón para realizar la ubicación de los barcos
+
         JButton buildButton = new JButton("Ubicar barcos");
         buildButton.setFocusPainted(false);
-        buildButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handler.onPassState(State.CHOOSE_ORIENT);
-                revalidate();
-                repaint();
-            }
+        buildButton.addActionListener(e -> {
+            handler.onPassState(State.CHOOSE_ORIENT);
+            revalidate();
+            repaint();
         });
+
+        //Botón de ayuda
+
+        JButton help = new JButton("?");
+        help.setFocusPainted(false);
+        help.addActionListener(e -> {
+            JOptionPane.showMessageDialog(null, MESSAGE);
+        });
+
+        //Panel para ubicar los botones
+
         buttonPanel = new JPanel();
+        buttonPanel.add(buildButton, BorderLayout.WEST);
+        buttonPanel.add(help);
 
-        buttonPanel.add(buildButton);
-
+        //Mensajes que aparecerán en el tablero para informar sobre los movimientos realizados.
 
         message.setText("Tablero de posición: ");
-        message.setFont(new Font("Dialog", Font.BOLD, 16));
+        message.setFont(new Font("Dialog", Font.PLAIN, 16));
         message1.setText("Tablero principal: ");
-        message1.setFont(new Font("Dialog", Font.BOLD, 16));
+        message1.setFont(new Font("Dialog", Font.PLAIN, 16));
         messagePanel.add(buttonPanel, BorderLayout.NORTH);
         messagePanel.add(message, BorderLayout.WEST);
         messagePanel.add(message1, BorderLayout.EAST);

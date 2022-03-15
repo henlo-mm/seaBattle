@@ -5,9 +5,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 /**
  * Se usa para mostrar un panel informativo del juego
- * @autor:
- * Robert Fernando Gil robert.gil@correounivalle.edu.co -
- * Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
+ * Author: Robert Fernando Gil robert.gil@correounivalle.edu.co - 2022985 - Esperanza Olivo esperanza.olivo@correounivalle.edu.co - 2025176
  * @version v.1.0.0 date: 05/03/2022
  */
 
@@ -35,11 +33,13 @@ public class PanelInfo extends JPanel {
 
       //  setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
      //   setBorder(new EmptyBorder(10, 10, 10, 10));
-        setLayout(new GridLayout(7, 7));
+        setLayout(new GridLayout(11, 11));
 
         /**
          * Símbolos de los tiros
          */
+
+        JLabel icons = new JLabel("Significado de los iconos: ");
 
         symbol = new JLabel("Tiro al agua ");
         symbol.setPreferredSize(new Dimension(100, 30));
@@ -47,7 +47,7 @@ public class PanelInfo extends JPanel {
         symbol.setHorizontalAlignment(JLabel.CENTER);
 
         symbol2 = new JLabel("Tocado");
-        symbol2.setPreferredSize(new Dimension(50, 30));
+        symbol2.setPreferredSize(new Dimension(50, 40));
         symbol2.setIcon(new ImageIcon(getClass().getResource("/resources/bomb.png")));
         symbol2.setHorizontalAlignment(JLabel.CENTER);
 
@@ -132,8 +132,13 @@ public class PanelInfo extends JPanel {
         add(new JSeparator(0));
         add(new JSeparator(0));
         add(new JSeparator(0));
+
+        add(icons);
+        add(new JLabel(""));
         add(symbol);
+        add(new JLabel(""));
         add(symbol2);
+        add(new JLabel(""));
         add(symbol3);
 
     }
